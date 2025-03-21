@@ -1,15 +1,10 @@
 const WebSocket = require("ws");
 const http = require("http");
 
-const PORT = process.env.PORT || 8080; 
-const server = http.createServer();
-const wss = new WebSocket.Server({ server });
+const wss = new WebSocket.Server({ port: 8080 });
 
 let games = {}; // Almacena partidas activas
 
-server.listen(PORT, '0.0.0.0', () => {
-  console.log(`✅ Servidor WebSocket corriendo en el puerto ${PORT}`);
-});
 
 wss.on("connection", (ws) => {
   console.log("🔵 Nuevo jugador conectado");
