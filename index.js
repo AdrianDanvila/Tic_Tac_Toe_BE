@@ -18,6 +18,11 @@ wss.on("connection", (ws) => {
     const data = JSON.parse(message);
     console.log("📩 Mensaje recibido:", data);
 
+    if (data.type === "list") {
+       ws.send(JSON.stringify({ type: "list", games:games }));
+    }
+
+
     if (data.type === "join") {
       let gameId = data.gameId;
       if (!games[gameId]) {
