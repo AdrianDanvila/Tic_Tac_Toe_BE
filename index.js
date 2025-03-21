@@ -7,7 +7,7 @@ const wss = new WebSocket.Server({ server });
 
 let games = {}; // Almacena partidas activas
 
-server.listen(PORT, () => {
+server.listen(PORT, '0.0.0.0', () => {
   console.log(`✅ Servidor WebSocket corriendo en el puerto ${PORT}`);
 });
 
